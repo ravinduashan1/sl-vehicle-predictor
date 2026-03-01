@@ -10,12 +10,13 @@ def load_large_model():
     model_path = 'vehicle_price_model.pkl'
     if not os.path.exists(model_path):
         # REPLACE THIS URL with your direct download link from Google Drive/Dropbox
-        url = 'https://drive.google.com/file/d/1wBxYwhRWeLdkS3yRsnCRfCzht3LY9pRR/view?usp=drive_link' 
+        url = 'https://drive.google.com/file/d/1wBxYwhRWeLdkS3yRsnCRfCzht3LY9pRR/view?usp=sharing' 
         with st.spinner('Downloading AI Model (133MB)... this may take a minute.'):
             urllib.request.urlretrieve(url, model_path)
             
     model = joblib.load(model_path)
     label_encoders = joblib.load('label_encoders.pkl')
     return model, label_encoders
+
 
 model, label_encoders = load_large_model()
